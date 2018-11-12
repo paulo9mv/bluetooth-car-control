@@ -161,10 +161,10 @@ public class MainActivity extends AppCompatActivity implements JoystickView.Joys
     public void onJoystickMoved(float x, float y, int source) {
         Log.d(TAG, "X percent: " + x + " Y percent: " + y);
         if(bluetooth.isConnected()) {
-            if(x < 0)
-                bluetooth.send("Y");
+            if(x >= 0)
+                bluetooth.send(String.valueOf(x) + "a");
             else
-                bluetooth.send("N");
+                bluetooth.send("0a");
             Log.d(TAG, "Sent");
         }
     }
